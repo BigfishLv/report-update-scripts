@@ -22,15 +22,8 @@ func main() {
 		logger.Error(context.Background(), "oldAdPvFileProcessor read filePath : %s, error : %+v", filePath, err)
 		return
 	}
-	newAdPvFileProcessor := reader.CsvFileProcessor[csv.AdPvClickCostDailyCsvData]{}
-	filePath = config.Csv.Path + config.Csv.NewAdPvClickCostDailyCsvFileName
-	newAdPvClickCostCsvDataArray, err := newAdPvFileProcessor.Read(filePath)
-	if err != nil {
-		logger.Error(context.Background(), "oldAdPvFileProcessor read filePath : %s, error : %+v", filePath, err)
-		return
-	}
 	sqlPath := config.Sql.Path + config.Sql.AdPvClickCostDailySqlFileName
-	sqlService.GenerateAdPvClickCostDailySqlFile(oldAdPvClickCostCsvDataArray, newAdPvClickCostCsvDataArray, sqlPath)
+	sqlService.GenerateAdPvClickCostDailySqlFile(oldAdPvClickCostCsvDataArray, sqlPath)
 
 	oldCampaignDataDailyFileProcessor := reader.CsvFileProcessor[csv.CampaignDataDailySummariesCsvData]{}
 	filePath = config.Csv.Path + config.Csv.OldCampaignDataDailySummariesCsvFileName
@@ -39,25 +32,11 @@ func main() {
 		logger.Error(context.Background(), "oldCampaignDataDailyFileProcessor read filePath : %s, error : %+v", filePath, err)
 		return
 	}
-	newCampaignDataDailyFileProcessor := reader.CsvFileProcessor[csv.CampaignDataDailySummariesCsvData]{}
-	filePath = config.Csv.Path + config.Csv.NewCampaignDataDailySummariesCsvFileName
-	newCampaignDataDailyCsvDataArray, err := newCampaignDataDailyFileProcessor.Read(filePath)
-	if err != nil {
-		logger.Error(context.Background(), "newCampaignDataDailyFileProcessor read filePath : %s, error : %+v", filePath, err)
-		return
-	}
 	sqlPath = config.Sql.Path + config.Sql.CampaignDataDailySummariesSqlFileName
-	sqlService.GenerateCampaignDataDailySummariesSqlFile(oldCampaignDataDailyCsvDataArray, newCampaignDataDailyCsvDataArray, sqlPath)
+	sqlService.GenerateCampaignDataDailySummariesSqlFile(oldCampaignDataDailyCsvDataArray, sqlPath)
 
-	newCampaignDataFileProcessor := reader.CsvFileProcessor[csv.CampaignDataSummariesCsvData]{}
-	filePath = config.Csv.Path + config.Csv.NewCampaignDataSummariesCsvFileName
-	newCampaignDataCsvDataArray, err := newCampaignDataFileProcessor.Read(filePath)
-	if err != nil {
-		logger.Error(context.Background(), "newCampaignDataFileProcessor read filePath : %s, error : %+v", filePath, err)
-		return
-	}
 	sqlPath = config.Sql.Path + config.Sql.CampaignDataSummariesSqlFileName
-	sqlService.GenerateCampaignDataSummariesSqlFile(oldCampaignDataDailyCsvDataArray, newCampaignDataCsvDataArray, sqlPath)
+	sqlService.GenerateCampaignDataSummariesSqlFile(oldCampaignDataDailyCsvDataArray, sqlPath)
 
 	oldCreativeDataDailyFileProcessor := reader.CsvFileProcessor[csv.CreativeDataDailySummariesCsvData]{}
 	filePath = config.Csv.Path + config.Csv.OldCreativeDataDailySummariesCsvFileName
@@ -66,25 +45,11 @@ func main() {
 		logger.Error(context.Background(), "oldCreativeDataDailyFileProcessor read filePath : %s, error : %+v", filePath, err)
 		return
 	}
-	newCreativeDataDailyFileProcessor := reader.CsvFileProcessor[csv.CreativeDataDailySummariesCsvData]{}
-	filePath = config.Csv.Path + config.Csv.NewCreativeDataDailySummariesCsvFileName
-	newCreativeDataDailyCsvDataArray, err := newCreativeDataDailyFileProcessor.Read(filePath)
-	if err != nil {
-		logger.Error(context.Background(), "newCreativeDataDailyFileProcessor read filePath : %s, error : %+v", filePath, err)
-		return
-	}
 	sqlPath = config.Sql.Path + config.Sql.CreativeDataDailySummariesSqlFileName
-	sqlService.GenerateCreativeDataDailySummariesSqlFile(oldCreativeDataDailyCsvDataArray, newCreativeDataDailyCsvDataArray, sqlPath)
+	sqlService.GenerateCreativeDataDailySummariesSqlFile(oldCreativeDataDailyCsvDataArray, sqlPath)
 
-	newCreativeDataFileProcessor := reader.CsvFileProcessor[csv.CreativeDataSummariesCsvData]{}
-	filePath = config.Csv.Path + config.Csv.NewCreativeDataSummariesCsvFileName
-	newCreativeDataCsvDataArray, err := newCreativeDataFileProcessor.Read(filePath)
-	if err != nil {
-		logger.Error(context.Background(), "newCreativeDataFileProcessor read filePath : %s, error : %+v", filePath, err)
-		return
-	}
 	sqlPath = config.Sql.Path + config.Sql.CreativeDataSummariesSqlFileName
-	sqlService.GenerateCreativeDataSummariesSqlFile(oldCreativeDataDailyCsvDataArray, newCreativeDataCsvDataArray, sqlPath)
+	sqlService.GenerateCreativeDataSummariesSqlFile(oldCreativeDataDailyCsvDataArray, sqlPath)
 
 	oldUserDataDailyFileProcessor := reader.CsvFileProcessor[csv.UserDataDailySummariesCsvData]{}
 	filePath = config.Csv.Path + config.Csv.OldUserDataDailySummariesCsvFileName
@@ -93,15 +58,8 @@ func main() {
 		logger.Error(context.Background(), "oldUserDataDailyFileProcessor read filePath : %s, error : %+v", filePath, err)
 		return
 	}
-	newUserDataDailyFileProcessor := reader.CsvFileProcessor[csv.UserDataDailySummariesCsvData]{}
-	filePath = config.Csv.Path + config.Csv.NewUserDataDailySummariesCsvFileName
-	newUserDataDailyCsvDataArray, err := newUserDataDailyFileProcessor.Read(filePath)
-	if err != nil {
-		logger.Error(context.Background(), "newUserDataDailyCsvDataArray read filePath : %s, error : %+v", filePath, err)
-		return
-	}
 	sqlPath = config.Sql.Path + config.Sql.UserDataDailySummariesSqlFileName
-	sqlService.GenerateUserDataDailySummariesSqlFile(oldUserDataDailyCsvDataArray, newUserDataDailyCsvDataArray, sqlPath)
+	sqlService.GenerateUserDataDailySummariesSqlFile(oldUserDataDailyCsvDataArray, sqlPath)
 
 	oldAllUsersDataDailyFileProcessor := reader.CsvFileProcessor[csv.AllUsersDataDailySummariesCsvData]{}
 	filePath = config.Csv.Path + config.Csv.OldAllUsersDataDailySummariesCsvFileName
@@ -110,14 +68,7 @@ func main() {
 		logger.Error(context.Background(), "oldAllUsersDataDailyFileProcessor read filePath : %s, error : %+v", filePath, err)
 		return
 	}
-	newAllUsersDataDailyFileProcessor := reader.CsvFileProcessor[csv.AllUsersDataDailySummariesCsvData]{}
-	filePath = config.Csv.Path + config.Csv.NewAllUsersDataDailySummariesCsvFileName
-	newAllUsersDataDailyCsvDataArray, err := newAllUsersDataDailyFileProcessor.Read(filePath)
-	if err != nil {
-		logger.Error(context.Background(), "newAllUsersDataDailyFileProcessor read filePath : %s, error : %+v", filePath, err)
-		return
-	}
 	sqlPath = config.Sql.Path + config.Sql.AllUsersDataDailySummariesSqlFileName
-	sqlService.GenerateAllUsersDataDailySummariesSqlFile(oldAllUsersDataDailyCsvDataArray, newAllUsersDataDailyCsvDataArray, sqlPath)
+	sqlService.GenerateAllUsersDataDailySummariesSqlFile(oldAllUsersDataDailyCsvDataArray, sqlPath)
 	logger.Info(context.Background(), "report update script run succeed.")
 }

@@ -25,13 +25,6 @@ type csv struct {
 	OldCreativeDataDailySummariesCsvFileName string
 	OldUserDataDailySummariesCsvFileName     string
 	OldAllUsersDataDailySummariesCsvFileName string
-	NewAdPvClickCostDailyCsvFileName         string
-	NewCampaignDataDailySummariesCsvFileName string
-	NewCampaignDataSummariesCsvFileName      string
-	NewCreativeDataDailySummariesCsvFileName string
-	NewCreativeDataSummariesCsvFileName      string
-	NewUserDataDailySummariesCsvFileName     string
-	NewAllUsersDataDailySummariesCsvFileName string
 }
 
 type sql struct {

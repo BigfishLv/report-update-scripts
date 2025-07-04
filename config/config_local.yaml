@@ -3,19 +3,12 @@ logger:
   level: debug
   console: false
 csv:
-  path: /Users/bigfish/Documents/data_csv_file/
+  path: /Users/bigfish/Documents/csv_data_path/
   oldAdPvClickCostDailyCsvFileName: old_ad_pv_click_cost_daily.csv
   oldCampaignDataDailySummariesCsvFileName: old_campaign_data_daily_summaries.csv
   oldCreativeDataDailySummariesCsvFileName: old_creative_data_daily_summaries.csv
   oldUserDataDailySummariesCsvFileName: old_user_data_daily_summaries.csv
   oldAllUsersDataDailySummariesCsvFileName: old_all_users_data_daily_summaries.csv
-  newAdPvClickCostDailyCsvFileName: new_ad_pv_click_cost_daily.csv
-  newCampaignDataDailySummariesCsvFileName: new_campaign_data_daily_summaries.csv
-  newCampaignDataSummariesCsvFileName: new_campaign_data_summaries.csv
-  newCreativeDataDailySummariesCsvFileName: new_creative_data_daily_summaries.csv
-  newCreativeDataSummariesCsvFileName: new_creative_data_summaries.csv
-  newUserDataDailySummariesCsvFileName: new_user_data_daily_summaries.csv
-  newAllUsersDataDailySummariesCsvFileName: new_all_users_data_daily_summaries.csv
 sql:
   path: /Users/bigfish/Documents/data_sql_file/
   adPvClickCostDailySqlFileName: ad_pv_click_cost_daily.sql
